@@ -94,8 +94,6 @@ Outputs can be verified, replayed, and audited by state actors, security teams, 
 **The Zero-Trust Execution Gateway for Machine Intelligence.**
 
 <br />
-![V8 Sandbox](https://img.shields.io/badge/V8_SANDBOX-050708?style=for-the-badge)
-![Zero Token](https://img.shields.io/badge/ZERO_TOKEN-050708?style=for-the-badge)
-![Policy Guards](https://img.shields.io/badge/POLICY_GUARDS-2DD4BF?style=for-the-badge)
+
 
 </div>
