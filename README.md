@@ -2,115 +2,100 @@
 
 # ◈ COMMONERA
 
-### The Agent Specification Layer
+### The Zero-Trust Execution Gateway for AI Agents
 
-`AGENT INFRASTRUCTURE` · `PACKAGING` · `VERSIONING` · `REPRODUCIBILITY` · `LEAST PRIVILEGE`
+· `PRIMITIVE POLICY GUARDS` · `BARE-METAL V8` · `ZERO-TOKEN LOOPS`
 
 <br />
 
-> **Agents shouldn't be hand-patched software.**
+> **Agents shouldn't execute on probabilistic guesses.**
 >
-> They should be **defined, packaged, versioned, reproduced, composed, and distributed.**
+> They should run **policy-enforced, single-pass deterministic workflows.**
 
 <br />
 
-![CommonEra](https://capsule-render.vercel.app/api?type=waving\&color=0:0F766E,50:2DD4BF,100:050708\&height=180\&section=header\&text=COMMONERA\&fontSize=42\&fontColor=CFFAFA\&animation=fadeIn)
+![CommonEra](https://capsule-render.vercel.app/api?type=waving&color=0:0F766E,50:2DD4BF,100:050708&height=180&section=header&text=COMMONERA&fontSize=42&fontColor=CFFAFA&animation=fadeIn)
 
 </div>
 
 ---
 
-## `01` — NO MORE DRIFT
+## `01` — CODE-AS-POLICY (NO MORE AGENT DRIFT)
 
-> **Hand-patched agents silently diverge from what they originally were.**
+> **"Access should be a policy. Not a guess."**
 
-Hand-patched agents silently diverge from what they originally were, one edit at a time, until nobody can say what the agent actually does anymore.
+Probabilistic multi-turn agent loops guess whether they should run a tool—hoping system prompts stop bad calls. 
 
-A spec-derived agent is always exactly what its spec says; there's no "it used to do X but someone tweaked it" ambiguity.
-
----
-
-## `02` — DETERMINISTIC UPGRADES
-
-> **Instead of manual patching.**
-
-Change a requirement, bump the version, and the whole agent regenerates from scratch.
-
-No hunting through files to find what needs editing; the classic "if I touch this, will something else quietly break" fear disappears.
+Commonera turns LLMs into transient script generators. Incoming user goals compile into single-pass TypeScript/JS control scripts that execute against hard, deterministic runtime boundaries.
 
 ---
 
-## `03` — REPRODUCIBILITY
 
-> **You always know exactly which version produced which result.**
 
-Every output can be traced to a specific, pinned spec version, the same way a bug report traces to a specific software build.
+## `02` — PRIMITIVE POLICY GUARDS (PPGs)
 
-That's audit-trail-grade accountability most agent tooling today can't offer.
+> **Programmable business logic enforced at the runtime layer.**
 
----
+Raw MCP servers and REST endpoints blindly execute requests if an API key is valid. 
 
-## `04` — LEAST PRIVILEGE
-
-### **By construction, not by discipline.**
-
-> An agent scoped to `github_repo_file_push` cannot also push code or create repos.
-
-Not because someone remembered to restrict it, but because it structurally doesn't have that capability.
-
-This directly maps to the exact governance gap the industry names as its biggest 2026 security problem, agents accidentally or maliciously given more access than they need.
+Commonera wraps client primitives with hard **Primitive Policy Guards (PPGs)**. Before firing an HTTP request or database write, Commonera evaluates state-based execution rules (e.g., spending limits, allowed network channels, role permissions). If the policy fails, execution aborts instantly in memory.
 
 ---
 
-## `05` — COMPOSABILITY
+## `03` — BARE-METAL V8 ISOLATION
 
-> **Composability without collision.**
+> **Least privilege by construction, not discipline.**
 
-Because each primitive does exactly one scoped thing, you can safely combine many of them into a larger agent (Applied, something we are testing) without one primitive's access silently overlapping or conflicting with another's, the same reasoning that makes small, single-purpose functions safer to compose than one giant function.
+Code executes inside ephemeral, lightweight V8 Isolate memory sandboxes (`isolated-vm`) and WASM enclaves.
 
----
-
-## `06` — ROLLBACK
-
-> **Rollback, for free.**
-
-Since every version is a discrete, regenerable artefact, reverting a bad change is "reusing the previous spec version", not "try to remember and manually undo whatever I changed".
+Unused system primitives do not exist in the isolate’s global scope. Memory is completely destroyed upon script completion, eliminating cross-tenant leakage, global scope poisoning, and host compromise vectors.
 
 ---
 
-## `07` — REGISTRY
+## `04` — ZERO-TOKEN ORCHESTRATION
 
-> **Turns tribal knowledge into a reusable asset.**
+> **Eliminate multi-turn latency and token burn.**
 
-Instead of every team hand-building their own agent from scratch, a working, versioned spec gets published once and installed everywhere, the same leverage npm gives software, just applied to agents instead of code.
+Standard ReAct agent loops make 10 sequential round-trips to an LLM for 10 tool steps. 
+
+Commonera requires **one single generation pass**. Control logic (`for` loops, `if/else`, error handling) executes locally inside the bare-metal V8 engine at sub-millisecond speeds—cutting token overhead by 90%+ and dropping multi-second latency to near zero.
 
 ---
 
-## `08` — BLAST-RADIUS CONTAINMENT
 
-> **When something goes wrong.**
 
-If a spec-derived agent misbehaves, the damage is capped by whatever single tool that primitive touches, not the entire surface area the underlying agent could theoretically reach.
+## `05` — REPRODUCIBLE AUDIT TRAILS & PROOFS
 
+> **Audit-trail-grade accountability for machine-to-machine execution.**
+
+Every execution run produces a deterministic, event-sourced trace payload binding:
+`Hash(User Goal + Generated JS + AST Validation Signature + Evaluated Policy State)`.
+
+Outputs can be verified, replayed, and audited by state actors, security teams, and compliance systems.
+
+---
+
+## `08` — DUAL-OPS ARCHITECTURE (PLATFORM + ATEP PROTOCOL)
+
+> **From managed infrastructure to open industry standard.**
+
+* **Commonera Engine:** Managed enterprise control plane for bare-metal V8 sandboxing, SOC2 audit logs, and high-security enterprise deployments.
+* **ATEP Protocol:** An open standard coming soon for lightweight edge execution.
 ---
 
 <div align="center">
 
-### `SPEC → PACKAGE → VERSION → REPRODUCE → COMPOSE → DISTRIBUTE`
+### `COMPILE → AST GATE → POLICY CHECK → V8 ISOLATE → EXECUTE`
 
 <br />
 
 `COMMONERA`
 
-**The infrastructure layer for agents.**
+**The Zero-Trust Execution Gateway for Machine Intelligence.**
 
 <br />
-
-![GitHub](https://img.shields.io/badge/AGENT_SPECIFICATION-0F766E?style=for-the-badge\&logo=github\&logoColor=white)
-![Packaging](https://img.shields.io/badge/PACKAGING-050708?style=for-the-badge)
-![Versioning](https://img.shields.io/badge/VERSIONING-050708?style=for-the-badge)
-![Reproducibility](https://img.shields.io/badge/REPRODUCIBILITY-050708?style=for-the-badge)
-![Least Privilege](https://img.shields.io/badge/LEAST_PRIVILEGE-2DD4BF?style=for-the-badge)
+![V8 Sandbox](https://img.shields.io/badge/V8_SANDBOX-050708?style=for-the-badge)
+![Zero Token](https://img.shields.io/badge/ZERO_TOKEN-050708?style=for-the-badge)
+![Policy Guards](https://img.shields.io/badge/POLICY_GUARDS-2DD4BF?style=for-the-badge)
 
 </div>
-
