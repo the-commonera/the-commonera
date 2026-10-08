@@ -1,5 +1,8 @@
 <div align="center">
 
+
+## COMMONERA IS NOW A PROTOCOL , OPEN & ACCESSIBLE
+
 # ◈ COMMONERA
 
 ### The Zero-Trust Execution Gateway for AI Agents
